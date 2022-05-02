@@ -1,0 +1,17 @@
+.navbar-brand{
+    font-weight: bold !important;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: xx-large;
+}
+.nav-link{
+    color:aliceblue !important;
+    font-size: large !important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.nav-link:hover{
+    color:#198754 !important;
+    font-size: large !important;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: aliceblue;
+    
+}

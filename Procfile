@@ -1,0 +1,1 @@
+web: gunicorn Office_mana_Sys.wsgi

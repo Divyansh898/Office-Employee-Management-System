@@ -1,0 +1,50 @@
+{% include 'header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        
+        <div class="card shadow m-5">
+
+          <form class="card-body cardbody-color p-lg-7" method="post">
+              {% csrf_token %}
+
+            <div class="text-center">
+              <img src="{% static 'images/man.png' %}" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                width="200px" alt="profile">
+                <center><h5 class="text-success m-1"> <b>Employee Login</b></h5></center>
+            </div>
+
+            <div class="mb-3">
+                <label class="text-success"><b>Email</b></label>
+              <input type="email" class="form-control" aria-describedby="emailHelp"
+                placeholder="User ID" name="emailid">
+            </div>
+            <div class="mb-3">
+                <label class="text-success"><b>Password</b></label>
+              <input type="password" class="form-control"  name="password" placeholder="password">
+            </div>
+            <div class="text-center"><button type="submit" class="px-5 mb-5 w-100 btn btn-success">Login</button></div>
+            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
+              Registered? <a href="{% url 'registration' %}" class= "text-success" > <b>Create an
+                Account</b></a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% if error == "no" %}
+<script>
+    alert('Logged Successfully !');
+    window.location=('{% url 'emp_home' %}');
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Invalid User id or Password !');
+    
+</script>
+{% endif %}

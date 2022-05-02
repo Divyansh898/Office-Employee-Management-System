@@ -1,0 +1,54 @@
+{% include 'header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<body >
+<div class="container">
+    <div class="row">
+        
+      <div class="col-md-6 offset-md-3">
+        
+        <div class="card shadow m-5">
+
+          <form class="card-body " method="post">
+              {% csrf_token %}
+
+            <div class="text-center">
+              <img src="{% static 'images/man.png' %}" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                width="200px" alt="profile">
+                <center><h5 class="text-success m-1"> <b>Admin Login</b></h5></center>
+            </div>
+
+            <div class="mb-3">
+                <label class="text-success"><b>Email</b></label>
+              <input type="text" class="form-control" aria-describedby="emailHelp"
+                placeholder="User ID" name="username">
+            </div>
+            <div class="mb-3">
+                <label class="text-success"><b>Password</b></label>
+              <input type="password" class="form-control"  name="pwd" placeholder="password">
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-success px-5 mb-5 w-100">Login</button></div>
+            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="{% url 'index' %}" class= "text-success" > <b>Go Back To Home
+                </b></a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+{% if error == "no" %}
+<script>
+    alert('Logged Successfully !');
+    window.location=('{% url 'admin_home' %}');
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Invalid User id or Password !');
+    
+</script>
+{% endif %}

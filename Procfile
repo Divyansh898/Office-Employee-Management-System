@@ -1,0 +1,1 @@
+web: waitress-serve --port=$PORT Office_mana_Sys.wsgi:application
